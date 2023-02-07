@@ -115,8 +115,9 @@ export function GetTables(e) {
 export function GetResultTypes(e) {
     var mapNodeResultTypes = {};
     TokensUtilities.getSyntaxNodes(e, Kusto.Language.Syntax.NameDeclaration).forEach(function (node) {
+        var _a;
         var namedNode = node;
-        mapNodeResultTypes[namedNode.Name.SimpleName] = namedNode.ResultType.Name;
+        mapNodeResultTypes[namedNode.Name.SimpleName] = (_a = namedNode === null || namedNode === void 0 ? void 0 : namedNode.ResultType) === null || _a === void 0 ? void 0 : _a.Name;
     });
     return mapNodeResultTypes;
 }
